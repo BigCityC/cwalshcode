@@ -1,0 +1,14 @@
+{% load static %}
+.navbar {
+	padding: 30px;
+}
+
+body {
+	background-image: url("../img/cool-background.png");
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+#name {
+	color: #f0ad4e;
+}
