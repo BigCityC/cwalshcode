@@ -9,3 +9,7 @@ def blog(request):
 
 def detail(request):
     return render(request, 'blog/detail.html', {})
+
+
+def btest(request):
+    return render(request, 'blog/b-test.html', {})
