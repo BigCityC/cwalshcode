@@ -4,5 +4,5 @@ from blog.models import Category
 
 
 def index(request):
-	category = Category.objects.get(pk=1)
-	return render(request, 'home/index.html', {'category':category})
+	# category = Category.objects.get(pk=1)
+	return render(request, 'home/index.html', {})

@@ -19,7 +19,7 @@
 				<div class="card-body">
 					<h2 class="card-title"> <a href="{% url 'blog:detail' post.pk %}">{{post}}</a></h2>
 					<p class="card-text">{{post.body|truncatechars:250}}</p>
-					<a href="#" class="btn btn-primary">Read More &rarr;</a>
+					<a href="{% url 'blog:detail' pk=post.pk %}" class="btn btn-primary">Read More &rarr;</a>
 				</div>
 				<div class="card-footer text-muted">
 					Posted on {{post.publish_date}} by {{post.author.get_full_name}}
