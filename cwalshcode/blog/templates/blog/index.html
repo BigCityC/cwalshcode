@@ -15,14 +15,14 @@
 			{% for post in posts%}
 			<!-- Blog Post -->
 			<div class="card mb-4">
-				<img class="card-img-top" src="http://placehold.it/750x300" alt="Python">
+				<img class="card-img-top" src="{% static 'blog/img/placeholder.jpg' %}" alt="Python">
 				<div class="card-body">
-					<h2 class="card-title"> <a href="{% url 'blog:detail' %}">{{post}}</a></h2>
+					<h2 class="card-title"> <a href="{% url 'blog:detail' post.pk %}">{{post}}</a></h2>
 					<p class="card-text">{{post.body|truncatechars:250}}</p>
 					<a href="#" class="btn btn-primary">Read More &rarr;</a>
 				</div>
 				<div class="card-footer text-muted">
-					Posted on {{post.publish_date}} by {{post.author}}
+					Posted on {{post.publish_date}} by {{post.author.get_full_name}}
 				</div>
 			</div>
 			{% endfor %}

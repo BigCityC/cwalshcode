@@ -4,21 +4,20 @@ from .models import Post, Category
 
 
 def post(request):
-	posts = Post.objects.all()
+	posts = Post.objects.all()[::-1]
 	categories = Category.objects.all()
 	object_dict = {'posts':posts, 'categories':categories}
 	return render(request, 'blog/index.html', object_dict)
 
 
-def detail(request):
-	return render(request, 'blog/detail.html', {})
+def detail(request, pk):
+	post = Post.objects.get(pk=pk)
+	return render(request, 'blog/detail.html', {'post':post})
 
 
-def btest(request):
-	posts = Post.objects.all()
-	categories = Category.objects.all()
-	return render(request, 'blog/b-test.html',
-		{'categories':categories},
+def drafts(request):
+	posts = Post.objects.filter(draft=True)
+
+	return render(request, 'blog/drafts.html',
 		{'posts':posts},
-
 		)

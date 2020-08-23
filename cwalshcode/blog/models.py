@@ -8,6 +8,7 @@ class Category(models.Model):
 	parent=models.ForeignKey(
 		'self', blank=True, null=True, related_name="children", on_delete=models.CASCADE)
 
+
 	class Meta:
 		# there cannot be two categories under a parent with the same slug
 		unique_together=('slug', 'parent',)
@@ -28,7 +29,7 @@ class Post(models.Model):
 	slug = models.SlugField(max_length=100, unique=True)
 	body = models.TextField()
 	category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
-	draft = models.BooleanField(default=False)
+	draft = models.BooleanField(default=True)
 	publish_date = models.DateTimeField(blank=True, null=True)
 
 	def publish(self):

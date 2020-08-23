@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+
+	<div class="row">
+		{% for post in posts %}
+
+
+		<!-- Post Content Column -->
+		<div class="col-lg-8">
+			<!-- Title -->
+			<h1 class="mt-4">{{post.title}}</h1>
+			<!-- Author -->
+			<p class="lead">by<a href="#">{{post.author.get_full_name}}</a></p>
+			<hr>
+			<!-- Date/Time -->
+			<p>Posted on {{post.publish_date}}</p>
+			<hr>
+			<!-- Preview Image -->
+			<img class="img-fluid rounded" src="{% static 'blog/img/placeholder.jpg' %}" alt="Python">
+			<hr>
+			<!-- Post Content -->
+			<p class="lead">{{post.body}}</p>
+			<hr>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% endblock %}
