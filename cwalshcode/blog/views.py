@@ -21,3 +21,6 @@ def drafts(request):
 	return render(request, 'blog/drafts.html',
 		{'posts':posts},
 		)
+
+def create_new(request):
+	pass
