@@ -1,6 +1,10 @@
 {% extends 'home/base.html' %}
 {% load static %}
 
+
+{% block navbutton %}
+<a href="{% url 'blog:create_new' %}"><button type="button" class="btn btn-success mr-3">Create New Post</button></a>
+{% endblock %}
 {% block content %}
 
 <!-- Page Content -->

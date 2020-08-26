@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post, Category
+from .forms import PostForm
+
 # Create your views here.
 
 
@@ -23,4 +25,13 @@ def drafts(request):
 		)
 
 def create_new(request):
-	pass
+	if request.method == 'POST':
+		form = PostForm(request.POST)
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.author = request.user
+			post.save()
+			return redirect('blog:detail', pk=post.pk)
+	else:
+		form = PostForm()
+	return render(request, 'blog/create_new.html', {"form": form})
