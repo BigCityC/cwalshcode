@@ -10,3 +10,15 @@
 .card-title {
 	color: black;
 }
+
+.col-lg-12 {
+	background-color: #f0f0f0;
+	margin-top: 60px;
+	padding: 30px;
+
+}
+
+.row {
+	width: auto;
+	justify-content: center;
+}
