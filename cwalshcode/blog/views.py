@@ -41,3 +41,8 @@ def publish(request, pk):
 	post = Post.objects.get(pk=pk)
 	post.publish()
 	return redirect('blog:post')
+
+def delete(request, pk):
+	post = Post.objects.get(pk=pk)
+	post.delete()
+	return redirect('blog:post')
