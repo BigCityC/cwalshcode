@@ -28,8 +28,8 @@
 
 }
 
-.post-form {
-	width: 100%;
+.post-form textarea, .post-form input {
+	width: 50%;
 }
 
 .float {
