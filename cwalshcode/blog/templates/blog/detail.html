@@ -14,11 +14,16 @@
 			<!-- Title -->
 			<h1 class="mt-4">{{post.title}}</h1>
 			<!-- Author -->
-			<p class="lead">by <a href="#">{{post.author.get_full_name}}</a></p>
+			<p class="lead">by {{post.author.get_full_name}}</p>
 			<hr>
+			{% if post.draft %}
 			{# !-- Date/Time --> #}
-			<p>Posted on {{post.publish_date}}</p>
+			<p>Created on {{post.created_date}}</p>
 			<hr>
+			{% else %}
+			<p>Posted on {{post.publish_date}}</p>
+
+			{% endif%}
 			<!-- Preview Image -->
 			<img class="mx-auto d-block" src="{% static 'blog/img/placeholder.jpg' %}" alt="Python">
 			<hr>

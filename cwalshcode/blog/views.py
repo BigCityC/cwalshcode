@@ -6,7 +6,7 @@ from .forms import PostForm
 
 
 def post(request):
-	posts = Post.objects.all()[::-1]
+	posts = Post.objects.filter(draft=False)[::-1]
 	categories = Category.objects.all()
 	object_dict = {'posts':posts, 'categories':categories}
 	return render(request, 'blog/index.html', object_dict)

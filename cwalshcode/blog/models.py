@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 
 # Create your models here.
 class Category(models.Model):
@@ -29,11 +30,13 @@ class Post(models.Model):
 	slug = models.SlugField(max_length=100, unique=True)
 	body = models.TextField()
 	category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
+	created_date = models.DateTimeField(default=timezone.now)
 	draft = models.BooleanField(default=True)
 	publish_date = models.DateTimeField(blank=True, null=True)
 
 	def publish(self):
 		self.publish_date = timezone.now()
+		self.draft = False
 		self.save()
 
 	def __str__(self):
