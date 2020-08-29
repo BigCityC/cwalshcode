@@ -18,7 +18,7 @@ def detail(request, pk):
 
 
 def drafts(request):
-	posts = Post.objects.filter(draft=True)
+	posts = Post.objects.filter(draft=True).order_by('-created_date')
 
 	return render(request, 'blog/drafts.html',
 		{'posts':posts},
@@ -35,3 +35,9 @@ def create_new(request):
 	else:
 		form = PostForm()
 	return render(request, 'blog/create_new.html', {"form": form})
+
+
+def publish(request, pk):
+	post = Post.objects.get(pk=pk)
+	post.publish()
+	return redirect('blog:post')

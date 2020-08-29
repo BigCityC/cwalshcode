@@ -31,3 +31,9 @@
 .post-form {
 	width: 100%;
 }
+
+.float {
+	display: flex;
+	justify-content: space-around;
+
+}
