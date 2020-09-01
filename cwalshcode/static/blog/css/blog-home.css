@@ -29,11 +29,19 @@
 }
 
 .post-form textarea, .post-form input {
-	width: 50%;
+	width: 100%;
 }
 
 .float {
 	display: flex;
 	justify-content: space-around;
 
+}
+
+.save {
+	float:right;
+}
+
+.col-lg-12 img {
+	width:100%;
 }

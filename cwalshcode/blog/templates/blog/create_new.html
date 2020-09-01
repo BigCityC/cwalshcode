@@ -3,11 +3,14 @@
 
 {% block content %}
 
-<h2>New Post</h2>
+
+	<h2>New Post</h2>
 	<form class="post-form" action="{% url 'blog:create_new' %}" method="post">
 		{% csrf_token %}
 		{{form.as_p}}
 		<button type="submit" class="save btn btn-primary">SAVE</button>
 	</form>
+
+
 
 {% endblock %}

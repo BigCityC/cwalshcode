@@ -36,8 +36,7 @@
 					Links
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="{% url 'blog:drafts' %}">Test Blog</a>
-					<a class="dropdown-item" href="#">LinkedIn</a>
+					<a class="dropdown-item" href="https://www.linkedin.com/in/courtney-walsh-7317b311b">LinkedIn</a>
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" href="#">Something else here</a>
 				</div>
@@ -56,8 +55,15 @@
 
 
 
-{% block content %}
-{% endblock %}
+<div class="content container">
+	<div class="row">
+		<div class="col-md-8">
+			{% block content %}
+
+			{% endblock %}
+		</div>
+	</div>
+</div>
 
 <body class="d-flex flex-column min-vh-100">
 	<div class="wrapper flex-grow-1"></div>
