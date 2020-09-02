@@ -9,7 +9,7 @@
 	<!-- Heading Row -->
 	<div class="row align-items-center my-5">
 		<div class="col-lg-6">
-			<img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'home/img/courtney.png' %}" alt="">
+			<img class="img-thumbnail rounded-circle" src="{% static 'home/img/profile-picture.jpg' %}" alt="">
 		</div>
 		<!-- /.col-lg-8 -->
 		<div class="col-lg-5">
@@ -35,8 +35,14 @@
 		<div class="col-md-4 mb-5">
 			<div class="card h-100">
 				<div class="card-body">
-					<h2 class="card-title">Card One</h2>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+					<h2 class="card-title">{{category.name}}</h2>
+					{% for post in category.post_set.all %}
+					<ul>
+						<li>{{post}}</li>
+
+					</ul>
+					{% endfor %}
+
 				</div>
 				<div class="card-footer">
 					<a href="#" class="btn btn-primary btn-sm">More Info</a>
