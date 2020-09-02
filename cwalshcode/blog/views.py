@@ -46,3 +46,17 @@ def delete(request, pk):
 	post = Post.objects.get(pk=pk)
 	post.delete()
 	return redirect('blog:post')
+
+
+def edit_post(request, pk):
+	post = get_object_or_404(Post, pk=pk)
+	if request.method == 'POST':
+		form = PostForm(request.POST, instance=post)
+		if form.is_valid():
+			post = form.save(commit=False)
+			post.author = request.user
+			post.save()
+			return redirect('blog:detail', pk=post.pk)
+	else:
+		form = PostForm(instance=post)
+	return render(request, 'blog/create_new.html', {"form": form})

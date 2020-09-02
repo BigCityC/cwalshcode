@@ -22,7 +22,9 @@
 					<center><p>Created on {{post.created_date}}</p><center>
 					<div class="row">
 						<a href="{% url 'blog:publish' post.pk %}"><button type="button" class="btn btn-success mx-3">Publish</button></a>
+						<a href="{% url 'blog:edit_post' post.pk %}"><button type="button" class="btn btn-secondary mx-3">Edit</button></a>
 						<a href="{% url 'blog:delete' post.pk %}"><button type="button" class="btn btn-danger mx-3">Delete</button></a>
+
 					</div>
 
 			</div>

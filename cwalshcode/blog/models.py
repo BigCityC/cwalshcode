@@ -25,9 +25,9 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-	title = models.CharField(max_length=100, unique=True)
+	title = models.CharField(max_length=100)
 	author = models.ForeignKey(settings.AUTH_USER_MODEL, default=1, on_delete=models.CASCADE)
-	slug = models.SlugField(max_length=100, unique=True)
+	slug = models.SlugField(max_length=100)
 	body = models.TextField()
 	category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.SET_NULL)
 	created_date = models.DateTimeField(default=timezone.now)
