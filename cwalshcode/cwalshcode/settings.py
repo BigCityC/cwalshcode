@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 	'django.contrib.staticfiles',
 	'home.apps.HomeConfig',
 	'blog.apps.BlogConfig',
+	'crispy_forms',
 ]
 MIDDLEWARE = [
 	'django.middleware.security.SecurityMiddleware',
@@ -126,3 +127,5 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+CRISPY_TEMPLATE_PACK="bootstrap4"
