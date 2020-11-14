@@ -43,8 +43,15 @@
 			</li>
 		</ul>
 		<a href="#" class="create-button"> <span class="glyphicon glyphicon-plus"></span> </a>
-		{% block navbutton %}
-		{% endblock %}
+
+
+		{% if user.is_authenticated %}
+			{% block navbutton %}
+			{% endblock %}
+			<a href="/logout" class="text-white mr-3">LOGOUT</a>
+		{% else %}
+			<a href="/login" class="text-white mr-3">LOGIN</a>
+		{% endif %}
 		<form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 			<button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>

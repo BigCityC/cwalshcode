@@ -1,5 +1,7 @@
 from django.urls import path, include
+from django.conf.urls import url
 from . import views
+
 
 app_name = "blog"
 urlpatterns = [
@@ -11,5 +13,6 @@ urlpatterns = [
 		path("posts/<int:pk>/publish/", views.publish, name="publish"),
 		path("posts/<int:pk>/delete/", views.delete, name="delete"),
 		path("posts/<int:pk>/edit/", views.edit_post, name='edit_post'),
+
 	])),
 ]
